@@ -29,7 +29,8 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
               "cd /home/ec2-user/cloud-ec2-web-server",
-              "git pull origin main",
+              "git fetch origin",
+              "git reset --hard origin/main",
               "sudo cp index.html /var/www/html/index.html"
             ]' \
             --query "Command.CommandId" \
