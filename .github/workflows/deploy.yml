@@ -30,10 +30,9 @@ jobs:
             --parameters 'commands=[
               "set -e",
               "cd /home/ec2-user/cloud-ec2-web-server",
-              "git config --global --add safe.directory /home/ec2-user/cloud-ec2-web-server",
-              "git fetch origin",
-              "git reset --hard origin/main",
-              "sudo cp index.html /var/www/html/index.html"
+              "sudo -u ec2-user git -c safe.directory=/home/ec2-user/cloud-ec2-web-server fetch origin",
+              "sudo -u ec2-user git -c safe.directory=/home/ec2-user/cloud-ec2-web-server reset --hard origin/main",
+              "sudo cp /home/ec2-user/cloud-ec2-web-server/index.html /var/www/html/index.html"
             ]' \
             --query "Command.CommandId" \
             --output text)
