@@ -30,6 +30,7 @@ jobs:
             --parameters 'commands=[
               "set -e",
               "cd /home/ec2-user/cloud-ec2-web-server",
+              "git config --global --add safe.directory /home/ec2-user/cloud-ec2-web-server",
               "git fetch origin",
               "git reset --hard origin/main",
               "sudo cp index.html /var/www/html/index.html"
