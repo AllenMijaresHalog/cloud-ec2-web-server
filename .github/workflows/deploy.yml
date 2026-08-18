@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to EC2
         env:
-          INSTANCE_ID: arn:aws:iam::642299167734:role/GitHubActions-EC2-Deploy
+          INSTANCE_ID: i-05d3b77c02194cc27
         run: |
           COMMAND_ID=$(aws ssm send-command \
             --instance-ids "$INSTANCE_ID" \
@@ -42,4 +42,3 @@ jobs:
             --instance-id "$INSTANCE_ID"
 
           echo "Deployment completed successfully."
-          
